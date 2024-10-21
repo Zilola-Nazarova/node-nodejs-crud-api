@@ -1,13 +1,22 @@
-const path = require('path');
-// const __dirname = import.meta.dirname;
+import path from 'path';
+import webpack from 'webpack';
+const __dirname = import.meta.dirname;
 
-module.exports = {
+export default {
   mode: 'production',
   entry: './src/server.js',
+  devServer: {
+    static: './dist',
+  },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'final.js',
+    filename: 'final.cjs',
   },
   target: 'node',
+  plugins: [
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1
+    })
+  ],
 };

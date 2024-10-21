@@ -7,7 +7,7 @@
   "scripts": {
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:prod": "npm run build && node dist/final.js",
+    "start:prod": "npm run build && node dist/final.cjs",
     "start:dev": "nodemon --watch src src/server.js"
   },
   "author": "",
