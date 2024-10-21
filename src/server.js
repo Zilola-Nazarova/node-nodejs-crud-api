@@ -21,16 +21,16 @@ const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
       // Call the function to handle GET requests
       handleGetRequest(req, res, parsedUrl);
-    } else if (req.method === 'POST' && parsedUrl.path === '/user') {
+    } else if (req.method === 'POST') {
       // Call the function to handle POST requests
-      handlePostRequest(req, res);
-    } else if (req.method === 'PUT' && parsedUrl.path.startsWith('/user/')) {
+      handlePostRequest(req, res, parsedUrl);
+    } else if (req.method === 'PUT') {
       // Call the function to handle PUT requests
       handlePutRequest(req, res, parsedUrl);
-    } else if (req.method === 'DELETE' && parsedUrl.path.startsWith('/user/')) {
+    } else if (req.method === 'DELETE') {
       // Call the function to handle DELETE requests
       handleDeleteRequest(req, res, parsedUrl);
-    } else { 
+    } else {
       // Return a 404 response if the method is not allowed
       sendResponse(res, 404, CONTENT_TYPE_JSON, { error: 'Method not allowed' });
     }
