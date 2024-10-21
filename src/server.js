@@ -14,24 +14,17 @@ const database = new Database();
 
 const server = http.createServer((req, res) => {
   try {
-    // Parse the request URL
     const parsedUrl = url.parse(req.url, true);
 
-    // Handle different HTTP methods and endpoints
     if (req.method === 'GET') {
-      // Call the function to handle GET requests
       handleGetRequest(req, res, parsedUrl);
     } else if (req.method === 'POST') {
-      // Call the function to handle POST requests
       handlePostRequest(req, res, parsedUrl);
     } else if (req.method === 'PUT') {
-      // Call the function to handle PUT requests
       handlePutRequest(req, res, parsedUrl);
     } else if (req.method === 'DELETE') {
-      // Call the function to handle DELETE requests
       handleDeleteRequest(req, res, parsedUrl);
     } else {
-      // Return a 404 response if the method is not allowed
       sendResponse(res, 404, CONTENT_TYPE_JSON, { error: 'Method not allowed' });
     }
   } catch (error) {
