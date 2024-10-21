@@ -13,25 +13,31 @@ const PORT = process.env.PORT;
 const database = new Database();
 
 const server = http.createServer((req, res) => {
-  // Parse the request URL
-  const parsedUrl = url.parse(req.url, true);
+  try {
+    // Parse the request URL
+    const parsedUrl = url.parse(req.url, true);
 
-  // Handle different HTTP methods and endpoints
-  if (req.method === 'GET') {
-    // Call the function to handle GET requests
-    handleGetRequest(req, res, parsedUrl);
-  } else if (req.method === 'POST' && parsedUrl.path === '/user') {
-    // Call the function to handle POST requests
-    handlePostRequest(req, res);
-  } else if (req.method === 'PUT' && parsedUrl.path.startsWith('/user/')) {
-    // Call the function to handle PUT requests
-    handlePutRequest(req, res, parsedUrl);
-  } else if (req.method === 'DELETE' && parsedUrl.path.startsWith('/user/')) {
-    // Call the function to handle DELETE requests
-    handleDeleteRequest(req, res, parsedUrl);
-  } else { 
-    // Return a 404 response if the method is not allowed
-    sendResponse(res, 404, CONTENT_TYPE_JSON, { error: 'Method not allowed' });
+    // Handle different HTTP methods and endpoints
+    if (req.method === 'GET') {
+      // Call the function to handle GET requests
+      handleGetRequest(req, res, parsedUrl);
+    } else if (req.method === 'POST' && parsedUrl.path === '/user') {
+      // Call the function to handle POST requests
+      handlePostRequest(req, res);
+    } else if (req.method === 'PUT' && parsedUrl.path.startsWith('/user/')) {
+      // Call the function to handle PUT requests
+      handlePutRequest(req, res, parsedUrl);
+    } else if (req.method === 'DELETE' && parsedUrl.path.startsWith('/user/')) {
+      // Call the function to handle DELETE requests
+      handleDeleteRequest(req, res, parsedUrl);
+    } else { 
+      // Return a 404 response if the method is not allowed
+      sendResponse(res, 404, CONTENT_TYPE_JSON, { error: 'Method not allowed' });
+    }
+  } catch (error) {
+    sendResponse(res, 500, CONTENT_TYPE_JSON, { error: `Unexpected error occured.
+      Please open an issue in project repo https://github.com/Zilola-Nazarova/node-nodejs-crud-api`
+    });
   }
 });
 
