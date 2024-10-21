@@ -4,7 +4,7 @@ import database from '../server.js';
 import { CONTENT_TYPE_JSON } from '../contentTypes.js';
 
 const handlePostRequest = (req, res, parsedUrl) => {
-  if (parsedUrl.path !== '/users') {
+  if (parsedUrl.pathname !== '/users') {
     sendResponse(res, 404, CONTENT_TYPE_JSON, { error: 'Endpoint not found' });
     return;
   }

@@ -1,5 +1,4 @@
 import http from 'node:http';
-import url from 'node:url';
 import 'dotenv/config';
 import handleDeleteRequest from './controllers/delete.js';
 import handleGetRequest from './controllers/get.js';
@@ -14,8 +13,8 @@ const database = new Database();
 
 const server = http.createServer((req, res) => {
   try {
-    const parsedUrl = url.URL(req.url, true);
-
+    const baseURL = req.protocol + '://' + req.headers.host + '/';
+    const parsedUrl = new URL(req.url, baseURL);
     if (req.method === 'GET') {
       handleGetRequest(req, res, parsedUrl);
     } else if (req.method === 'POST') {

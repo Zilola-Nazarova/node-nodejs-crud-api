@@ -3,13 +3,13 @@ import database from '../server.js';
 import { CONTENT_TYPE_JSON } from '../contentTypes.js';
 
 const handleDeleteRequest = (req, res, parsedUrl) => {
-  if (!parsedUrl.path.startsWith('/users/') || parsedUrl.path.split('/').length !== 3) {
+  if (!parsedUrl.pathname.startsWith('/users/') || parsedUrl.pathname.split('/').length !== 3) {
     sendResponse(res, 404, CONTENT_TYPE_JSON, { error: 'Endpoint not found' });
     return;
   }
 
   const regexExp = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-  const userId = parsedUrl.path.split('/').pop();
+  const userId = parsedUrl.pathname.split('/').pop();
   const isUuid = regexExp.test(userId);
 
   if (!isUuid) {
