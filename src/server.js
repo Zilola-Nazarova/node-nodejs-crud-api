@@ -7,7 +7,7 @@ import handlePostRequest from "./controllers/post.js";
 import handlePutRequest from "./controllers/put.js";
 import sendResponse from "./sendResponse.js";
 import { CONTENT_TYPE_JSON } from "./contentTypes.js";
-import Database from "./users.js";
+import Database from "./database.js";
 
 const PORT = process.env.PORT;
 const database = new Database();
