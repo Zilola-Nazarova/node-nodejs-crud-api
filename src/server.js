@@ -1,20 +1,20 @@
-import http from "node:http";
-import url from "node:url";
+import http from 'node:http';
+import url from 'node:url';
 import 'dotenv/config';
-import handleDeleteRequest from "./controllers/delete.js";
-import handleGetRequest from "./controllers/get.js";
-import handlePostRequest from "./controllers/post.js";
-import handlePutRequest from "./controllers/put.js";
-import sendResponse from "./sendResponse.js";
-import { CONTENT_TYPE_JSON } from "./contentTypes.js";
-import Database from "./database.js";
+import handleDeleteRequest from './controllers/delete.js';
+import handleGetRequest from './controllers/get.js';
+import handlePostRequest from './controllers/post.js';
+import handlePutRequest from './controllers/put.js';
+import sendResponse from './sendResponse.js';
+import { CONTENT_TYPE_JSON } from './contentTypes.js';
+import Database from './database.js';
 
 const PORT = process.env.PORT;
 const database = new Database();
 
 const server = http.createServer((req, res) => {
   try {
-    const parsedUrl = url.parse(req.url, true);
+    const parsedUrl = url.URL(req.url, true);
 
     if (req.method === 'GET') {
       handleGetRequest(req, res, parsedUrl);
@@ -28,7 +28,8 @@ const server = http.createServer((req, res) => {
       sendResponse(res, 404, CONTENT_TYPE_JSON, { error: 'Method not allowed' });
     }
   } catch (error) {
-    sendResponse(res, 500, CONTENT_TYPE_JSON, { error: `Unexpected error occured.
+    sendResponse(res, 500, CONTENT_TYPE_JSON, {
+      error: `Unexpected error occured.
       Please open an issue in project repo https://github.com/Zilola-Nazarova/node-nodejs-crud-api`
     });
   }

@@ -1,12 +1,12 @@
 class User {
-  constructor(id, username, age, hobbies) {
+  constructor (id, username, age, hobbies) {
     this.id = id;
     this.username = username;
     this.age = age;
     this.hobbies = hobbies;
   }
 
-  update(username, age, hobbies) {
+  update (username, age, hobbies) {
     this.username = username;
     this.age = age;
     this.hobbies = hobbies;
@@ -17,29 +17,29 @@ class User {
 class Database {
   #users;
 
-  constructor() {
+  constructor () {
     this.#users = [];
   }
 
-  createUser(id, username, age, hobbies) {
+  createUser (id, username, age, hobbies) {
     const user = new User(id, username, age, hobbies);
     this.#users.push(user);
     return user;
   }
 
-  getUsers() {
+  getUsers () {
     return this.#users;
   }
 
-  getUser(userId) {
+  getUser (userId) {
     return this.#users.find(user => user.id === userId);
   }
 
-  removeUser(userIndex) {
-    this.#users.splice(userIndex, 1)[0]
+  removeUser (userIndex) {
+    return this.#users.splice(userIndex, 1)[0];
   }
 
-  updateUser(userId, username, age, hobbies) {
+  updateUser (userId, username, age, hobbies) {
     return this.#users
       .find(user => user.id === userId)
       .update(username, age, hobbies);

@@ -1,6 +1,6 @@
-import sendResponse from "../sendResponse.js";
-import database from "../server.js";
-import { CONTENT_TYPE_JSON } from "../contentTypes.js";
+import sendResponse from '../sendResponse.js';
+import database from '../server.js';
+import { CONTENT_TYPE_JSON } from '../contentTypes.js';
 
 const handleDeleteRequest = (req, res, parsedUrl) => {
   if (!parsedUrl.path.startsWith('/users/') || parsedUrl.path.split('/').length !== 3) {
@@ -8,7 +8,7 @@ const handleDeleteRequest = (req, res, parsedUrl) => {
     return;
   }
 
-  const regexExp = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+  const regexExp = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
   const userId = parsedUrl.path.split('/').pop();
   const isUuid = regexExp.test(userId);
 

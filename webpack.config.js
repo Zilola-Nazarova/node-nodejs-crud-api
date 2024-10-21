@@ -6,17 +6,17 @@ export default {
   mode: 'production',
   entry: './src/server.js',
   devServer: {
-    static: './dist',
+    static: './dist'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'final.cjs',
+    filename: 'final.cjs'
   },
   target: 'node',
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
     })
-  ],
+  ]
 };
