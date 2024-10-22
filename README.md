@@ -1,9 +1,7 @@
-# node-nodejs-crud-api
-
 <h3 align="center"><b>NODEJS CRUD API</b></h3>
 
-<p align="center">The task: https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md</p>
-<p align="center">The corresponding lesson: https://github.com/rolling-scopes-school/tasks/blob/master/node/modules/crud-api/README.md</p>
+The task: https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md  
+The corresponding lesson: https://github.com/rolling-scopes-school/tasks/blob/master/node/modules/crud-api/README.md
 
 <a name="readme-top"></a>
 
@@ -74,8 +72,8 @@ In order to run this project you need:
 - GitHub account;
 - Git installed on your OS;
 - VSCode (or another code editor);
-- modern browser (supporting HTML5 and CSS3) is highly recommended;
-- [Node.js and npm](https://nodejs.org/) 22.x.x version installed.
+- [Node.js and npm](https://nodejs.org/) 22.x.x version installed;
+- [Postman](https://www.postman.com/) (or another tool) to test API endpoints.
 
 ### Setup
 
@@ -98,7 +96,7 @@ Install the dependencies:
 To run the server in development mode:
 > npm run start:dev
 To run the server in production mode:
-> npm run start:dev
+> npm run start:dev  
 
 Open [http://localhost:5000](http://localhost:5000) to view it in your browser.
 
@@ -127,8 +125,6 @@ You can also check linter errors by running these commands:
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank the Microverse program for the knowledge and skills I have acquired in Modules 1-4.
-
-I am grateful to all previous project reviewers for their advice. Thanks to them I could build this app.
+This project was developed as part of the [RSSchool](https://rs.school/courses/aws-devops) AWS DevOps course. I would like to express my gratitude to the RSSchool team for their guidance and support throughout the learning journey.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
